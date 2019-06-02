@@ -7,7 +7,6 @@ import ErrorMessage from './components/ErrorMessage';
 
 class App extends Component {
     render () {
-        console.log(this.props.address.cep);
         return (
             <div className="App">
                 <header className="App-header">
@@ -19,18 +18,19 @@ class App extends Component {
     }
 
     renderResponse = () => {
-        const CEP = this.props.address.cep;
-        if(CEP === undefined) {
-            return <ErrorMessage/>;
-        }
-        else {
-            return <AddressForm />
+        const address = this.props.address;
+        if (address !== '') {
+            if (address.cep === undefined) {
+                return <ErrorMessage/>;
+            } else {
+                return <AddressForm />;
+            }
         }
     }
 }
 
 const mapStateToProps = state => {
-    return {address: state.address};
+    return { address: state.address };
 }
 
 export default connect(mapStateToProps)(App);
