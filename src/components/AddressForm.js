@@ -1,13 +1,17 @@
 import React from 'react';
 import './AddressForm.scss';
+import { connect } from 'react-redux';
 
 class AddressForm extends React.Component {
     render () {
+
+        const { logradouro, complemento, bairro, localidade, uf } = this.props.address;
+
         return (
             <div className="address-form">
                 <div className="form-group">
                     <label>Logradouro</label>
-                    <input disabled/>
+                    <input value={logradouro} disabled/>
                 </div>
                 <div className="form-group">
                     <label>Número</label>
@@ -15,23 +19,27 @@ class AddressForm extends React.Component {
                 </div>
                 <div className="form-group">
                     <label>Complemento</label>
-                    <input disabled/>
+                    <input value={complemento} disabled/>
                 </div>
                 <div className="form-group">
                     <label>Bairro</label>
-                    <input disabled/>
+                    <input value={bairro} disabled/>
                 </div>
                 <div className="form-group">
                     <label>Cidade</label>
-                    <input disabled/>
+                    <input value={localidade} disabled/>
                 </div>
                 <div className="form-group">
                     <label>Estado</label>
-                    <input disabled/>
+                    <input value={uf} disabled/>
                 </div>
             </div>
         );
     }
 }
 
-export default AddressForm;
+const mapStateToprops = state => {
+    return { address: state.address }
+}
+
+export default connect(mapStateToprops)(AddressForm);
