@@ -1,4 +1,37 @@
-.map {
+
+
+.address-form {
+    max-width: 720px;
     margin: 0 auto;
-    max-width: 1024px;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+    }
+    
+    .form-group {
+        display: flex;
+        justify-content: space-between;
+        margin: 5px 0;
+
+        label {
+            text-align: left;
+            width: 20%;
+        }
+
+        input {
+            width: 80%;
+        }
+
+    }
+
+    .show-map-button {
+        margin: 10px 0;
+    }
+    
+    .map {
+        margin: 0 auto;
+        max-width: 1024px;
+    }
 }

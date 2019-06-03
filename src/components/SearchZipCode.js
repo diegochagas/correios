@@ -22,7 +22,7 @@ class SearchZipCode extends React.Component {
                     ref="CEP" 
                     placeholder="00000-000"
                 />
-                <button className="search-button">
+                <button className="btn search-button">
                     <FontAwesomeIcon icon={faSearch} />
                 </button>
             </form>
