@@ -13,7 +13,7 @@ class SearchZipCode extends React.Component {
 
     render () {
         return (
-            <form className="address-form" onSubmit={this.onSearchCEP}>
+            <form className="search-zip-code" onSubmit={this.onSearchCEP}>
                 <label className="search-label">Busca endereço</label>
                 <input 
                     className="search-field"

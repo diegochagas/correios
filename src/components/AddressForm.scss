@@ -1,8 +1,11 @@
-
-
 .address-form {
-    max-width: 720px;
-    margin: 0 auto;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    max-width: 580px;
+    margin: 20px auto;
+    color: #00416B;
+    font-weight: bold;
+    transition-timing-function: ease-in;
 
     form {
         display: flex;
@@ -14,6 +17,7 @@
         display: flex;
         justify-content: space-between;
         margin: 5px 0;
+        flex-wrap: wrap;
 
         label {
             text-align: left;
@@ -21,13 +25,20 @@
         }
 
         input {
-            width: 80%;
+            width: 75%;
+            border-radius: 5px;
+            padding: 5px;
+            @media screen and (max-width: 426px) {
+                width: 100%;
+            }
         }
 
     }
 
     .show-map-button {
-        margin: 10px 0;
+        margin: 10px auto;
+        max-width: 150px;
+        font-size: 16px;
     }
     
     .map {

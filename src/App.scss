@@ -1,25 +1,32 @@
 .App {
+    padding: 20px;
     text-align: center;
 }
 
 .App-header {
-    background-color: #282c34;
-    min-height: 100px;
+    background-color: #00416B;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
     color: white;
-}
-
-.App-link {
-    color: #61dafb;
+    max-width: 540px;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 5px;
 }
 
 .btn {
     background-color:#FFD400;
     border: 3px solid #FFD400;
     padding: 5px;
+    border-radius: 5px;
+    color: #00416B;
+    font-weight: bold;
+}
+
+.form-text-error {
+    color: red;
+    font-weight: bold;
 }
 

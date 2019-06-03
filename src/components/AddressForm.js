@@ -43,7 +43,7 @@ class AddressForm extends React.Component {
                         <label>Estado</label>
                         <input value={uf} disabled name="uf" />
                     </div>
-                    <button className="btn show-map-button">Exibir mapa</button>
+                    <button className="btn show-map-button">Exibir no mapa</button>
                 </form>
                 <div className="map">
                     {this.renderMap()}
@@ -65,7 +65,6 @@ class AddressForm extends React.Component {
             return <small></small>
         } else {
             return <MapContainer />;
-            // return <small>Não foi possível exibir mapa com o endereço informado.</small>
         }
     }
 }

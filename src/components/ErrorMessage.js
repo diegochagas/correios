@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class ErrorMessage extends React.Component {
     render () {
         return (
-            <small className="form-text">
+            <small className="form-text-error">
                 {this.renderErrorMessage()}
             </small>
         );
