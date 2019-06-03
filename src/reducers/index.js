@@ -1,13 +1,22 @@
 import { combineReducers } from 'redux';
-import { SEARCH_ADDRESS } from '../actions';
+import { FETCH_ADDRESS, FETCH_COORDINATES } from '../actions';
 
 const addressReducer = (state = '', action) => {
     switch (action.type) {
-        case SEARCH_ADDRESS:
+        case FETCH_ADDRESS:
             return action.payload;
         default:
             return state;
     }
 }
 
-export default combineReducers({ address: addressReducer });
+const coordinatesReducer = (state = '', action) => {
+    switch (action.type) {
+        case FETCH_COORDINATES:
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+export default combineReducers({ address: addressReducer, coordinates: coordinatesReducer });
