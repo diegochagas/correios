@@ -8,6 +8,7 @@ class AddressForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = { zipcode: '' };
+        this.brazilianStates = this.getBrazilianStates();
     }
 
     render () {
@@ -41,7 +42,11 @@ class AddressForm extends React.Component {
                     </div>
                     <div className="form-group">
                         <label>Estado</label>
-                        <input value={uf} disabled name="uf" />
+                        <select id="uf" disabled>
+                        {this.brazilianStates.map(state => {
+                            return <option value={state.initials} selected={uf === state.initials}>{state.name}</option>
+                        })}
+                    </select>
                     </div>
                     <button className="btn show-map-button">Exibir no mapa</button>
                 </form>
@@ -66,6 +71,39 @@ class AddressForm extends React.Component {
         } else {
             return <MapContainer />;
         }
+    }
+
+    getBrazilianStates = () => {
+        return [
+            {initials: "AC", name: "Acre"},
+            {initials: "AL", name: "Alagoas"},
+            {initials: "AP", name: "Amapá"},
+            {initials: "AM", name: "Amazonas"},
+            {initials: "BA", name: "Bahia"},
+            {initials: "CE", name: "Ceará"},
+            {initials: "DF", name: "Distrito Federal"},
+            {initials: "ES", name: "Espírito Santo"},
+            {initials: "GO", name: "Goiás"},
+            {initials: "MA", name: "Maranhão"},
+            {initials: "MT", name: "Mato Grosso"},
+            {initials: "MS", name: "Mato Grosso do Sul"},
+            {initials: "MG", name: "Minas Gerais"},
+            {initials: "PA", name: "Pará"},
+            {initials: "PB", name: "Paraíba"},
+            {initials: "PR", name: "Paraná"},
+            {initials: "PE", name: "Pernambuco"},
+            {initials: "PI", name: "Piauí"},
+            {initials: "RJ", name: "Rio de Janeiro"},
+            {initials: "RN", name: "Rio Grande do Norte"},
+            {initials: "RS", name: "Rio Grande do Sul"},
+            {initials: "RO", name: "Rondônia"},
+            {initials: "RR", name: "Roraima"},
+            {initials: "SC", name: "Santa Catarina"},
+            {initials: "SP", name: "São Paulo"},
+            {initials: "SE", name: "Sergipe"},
+            {initials: "TO", name: "Tocantins"},
+            {initials: "ES", name: "Estrangeiro"}
+        ];
     }
 }
 
