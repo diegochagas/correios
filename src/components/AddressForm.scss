@@ -22,15 +22,20 @@
         label {
             text-align: left;
             width: 20%;
+            padding: 2px 0;
         }
 
-        input {
-            width: 75%;
+        input,
+        select {
+            border: 1px solid lightgray;
             border-radius: 5px;
+            color: black;
             padding: 5px;
-            @media screen and (max-width: 426px) {
-                width: 100%;
-            }
+            width: 100%;
+        }
+
+        select {
+            background-color: #ebebe4;
         }
 
     }
