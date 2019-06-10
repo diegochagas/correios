@@ -8,7 +8,6 @@ class AddressForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = { zipcode: '' };
-        this.brazilianStates = this.getBrazilianStates();
     }
 
     render () {
@@ -42,11 +41,7 @@ class AddressForm extends React.Component {
                     </div>
                     <div className="form-group">
                         <label>Estado</label>
-                        <select id="uf" disabled>
-                        {this.brazilianStates.map(state => {
-                            return <option value={state.initials} selected={uf === state.initials}>{state.name}</option>
-                        })}
-                    </select>
+                        {this.renderStates(uf)}
                     </div>
                     <button className="btn show-map-button">Exibir no mapa</button>
                 </form>
@@ -73,8 +68,8 @@ class AddressForm extends React.Component {
         }
     }
 
-    getBrazilianStates = () => {
-        return [
+    renderStates = uf => {
+        const brazilianStates = [
             {initials: "AC", name: "Acre"},
             {initials: "AL", name: "Alagoas"},
             {initials: "AP", name: "Amapá"},
@@ -101,9 +96,21 @@ class AddressForm extends React.Component {
             {initials: "SC", name: "Santa Catarina"},
             {initials: "SP", name: "São Paulo"},
             {initials: "SE", name: "Sergipe"},
-            {initials: "TO", name: "Tocantins"},
-            {initials: "ES", name: "Estrangeiro"}
+            {initials: "TO", name: "Tocantins"}
         ];
+        const brazilianState = brazilianStates.find(state => state.initials === uf); 
+        const selectedUF = brazilianState ? brazilianState.initials : '';
+        return (
+            <select id="uf" disabled defaultValue={selectedUF}>
+                {brazilianStates.map(state => {
+                    return (
+                        <option key={state.initials} value={state.initials}>
+                            {state.name}
+                        </option>
+                    )
+                })}
+            </select>
+        );
     }
 }
 
