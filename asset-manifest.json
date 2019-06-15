@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/correios/static/css/main.13ea3829.chunk.css",
+    "main.js": "/correios/static/js/main.2d990dc2.chunk.js",
+    "main.js.map": "/correios/static/js/main.2d990dc2.chunk.js.map",
+    "runtime~main.js": "/correios/static/js/runtime~main.dcebcf6f.js",
+    "runtime~main.js.map": "/correios/static/js/runtime~main.dcebcf6f.js.map",
+    "static/js/2.98dd2dce.chunk.js": "/correios/static/js/2.98dd2dce.chunk.js",
+    "static/js/2.98dd2dce.chunk.js.map": "/correios/static/js/2.98dd2dce.chunk.js.map",
+    "index.html": "/correios/index.html",
+    "precache-manifest.4356c4fa22ee299ac933368bc6d201fa.js": "/correios/precache-manifest.4356c4fa22ee299ac933368bc6d201fa.js",
+    "service-worker.js": "/correios/service-worker.js",
+    "static/css/main.13ea3829.chunk.css.map": "/correios/static/css/main.13ea3829.chunk.css.map"
+  }
+}
