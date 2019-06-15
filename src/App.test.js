@@ -1,18 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import reducers from './reducers';
+import { shallow } from 'enzyme';
+import { findByTestAttr, testStore } from './utils';
 
-const store = createStore(reducers, applyMiddleware(thunk));
+const setUp = (initialState={}) => {
+    const store = testStore(initialState);
+    const wrapper = shallow(<App store={store} />);
+    return wrapper;
+}
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
-    <Provider store={store}>
-      <App /> 
-  </Provider>, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('Testing App Component', () => {
+
+    let wrapper;
+    beforeEach(() => {
+        wrapper = setUp();
+    });
+
+    it('renders without crashing', () => {
+        const component = findByTestAttr(wrapper, 'app');
+        expect(component.length).toBe(1);
+    });
+
 });
