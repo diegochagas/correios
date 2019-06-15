@@ -1,24 +1,31 @@
-import ViaCEPAPI from '../apis/ViaCEPAPI';
-import BingMapsAPI from '../apis/BingMapsAPI';
+import types from './types';
 
-export const FETCH_ADDRESS = "FETCH_ADDRESS";
-export const FETCH_COORDINATES = "FETCH_COORDINATES";
+export const loadAddress = CEP => ({ 
+    type: types.ADDRESS_LOAD, 
+    CEP 
+});
 
-export const fetchCEP = CEP => async dispatch => {
-    try {
-        const response = await ViaCEPAPI(CEP);
-        dispatch({ type: FETCH_ADDRESS, payload: response.data });
-    } catch (err) {
-        dispatch({type: FETCH_ADDRESS, payload: err});
-    }
-} 
+export const setAddress = address => ({ 
+    type: types.ADDRESS_LOAD_SUCCESS, 
+    address 
+});
 
-export const fetchCoordinates = CEP => async dispatch => {
-    try {
-        const response = await BingMapsAPI(CEP);
-        const coordinates = response.data.resourceSets[0].resources[0].geocodePoints[0].coordinates;
-        dispatch({type: FETCH_COORDINATES, payload: coordinates});
-    } catch (err) {
-        dispatch({type: FETCH_COORDINATES, payload: err});
-    }
-}
+export const setError = error => ({ 
+    type: types.ADDRESS_LOAD_FAIL, 
+    error 
+});
+
+export const fetchCoordinates = CEP => ({
+    type: types.FETCH_COORDINATES,
+    CEP
+});
+
+export const setCoordinates = coordinates => ({ 
+    type: types.FETCH_COORDINATES_SUCCESS, 
+    coordinates
+});
+
+export const setErrorCoordinates = error => ({ 
+    type: types.FETCH_COORDINATES_FAIL, 
+    error 
+});
