@@ -2,18 +2,17 @@ import React from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import { API_KEY } from '../apis/GeocodingAPI';
 import { connect } from 'react-redux';
-import './MapContainer.scss';
+import './MapContainer.css';
 
 class MapContainer extends React.Component {
     render() {
-        const latitude = this.props.coordinates[0];
-        const longitude = this.props.coordinates[1];
+        const { latitude, longitude } = this.props.coordinates;
         return (
             <div className="map-container">
                 <Map 
                     google={this.props.google} 
                     zoom={15} 
-                    initialCenter={{ lat: latitude, lng: longitude }}
+                    center={{ lat: latitude, lng: longitude }}
                 >
                     <Marker onClick={this.onMarkerClick} name={'Current location'} />
                     <InfoWindow onClose={this.onInfoWindowClose}>
