@@ -1,22 +1,14 @@
 import { combineReducers } from 'redux';
-import { FETCH_ADDRESS, FETCH_COORDINATES } from '../actions';
+import { loadingReducer, addressReducer, errorReducer } from './addressReducer';
+import { loadingCoordinatesReducer, coordinatesReducer, errorCoordinatesReducer } from './coordinatesReducer';
 
-const addressReducer = (state = '', action) => {
-    switch (action.type) {
-        case FETCH_ADDRESS:
-            return action.payload;
-        default:
-            return state;
-    }
-}
+const rootReducer = combineReducers({
+    isLoading: loadingReducer,
+    address: addressReducer,
+    error: errorReducer,
+    isLoadingCoordinates: loadingCoordinatesReducer,
+    coordinates: coordinatesReducer,
+    errorCoordinates: errorCoordinatesReducer
+});
 
-const coordinatesReducer = (state = '', action) => {
-    switch (action.type) {
-        case FETCH_COORDINATES:
-            return action.payload;
-        default:
-            return state;
-    }
-}
-
-export default combineReducers({ address: addressReducer, coordinates: coordinatesReducer });
+export default rootReducer;
