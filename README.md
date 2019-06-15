@@ -17,7 +17,7 @@ Web app that searchs for an Brazilian zipcode and returns its address. Besides t
 
 ## Installation
 
-Use the node package manager [npm](https://nodejs.org/en/) to install correios.
+Use the [node package manager (npm)](https://nodejs.org/en/) to install correios.
 
 ```
 npm i
