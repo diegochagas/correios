@@ -1,5 +1,5 @@
 import Geocode from 'react-geocode';
-export const API_KEY = "AIzaSyAHcixvHTRnP4vJCL1mkav-oY8wPJf4Fgc";
+export const API_KEY = "AIzaSyBbEgH3Bm7kYUluzA4Zbc2VvGEfuJqwuQw";
 
 Geocode.setApiKey(API_KEY);
 
